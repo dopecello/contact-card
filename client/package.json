@@ -4,7 +4,9 @@
   "description": "Practicing PWA construction",
   "private": "true",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack --mode development",
+    "dev": "webpack-dev-server", 
+    "start": "webpack --watch"
   },
   "author": "William Locke",
   "license": "ISC",
