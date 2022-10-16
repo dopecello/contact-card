@@ -2,10 +2,14 @@
   "name": "contact-card",
   "version": "1.0.0",
   "description": "Practicing PWA construction",
-  "main": "index.js",
+  "private": "true",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack"
   },
   "author": "William Locke",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
 }
