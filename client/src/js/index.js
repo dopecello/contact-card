@@ -10,7 +10,7 @@ import Bear from "../images/bear.png";
 import Dog from "../images/dog.png";
 
 //Import database initializer
-import { initDb, getDb, postDb } from "./database";
+import { initDb, getDb, postDb, deleteDb } from "./database";
 
 //import cards functionality
 import { fetchCards } from "./cards";
@@ -58,3 +58,9 @@ form.addEventListener("submit", (event) => {
   toggleForm();
   fetchCards();
 });
+
+window.deleteCard = (e) => {
+  let id = parseInt(e.id);
+  deleteDb(id);
+  fetchCards();
+};

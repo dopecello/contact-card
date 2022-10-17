@@ -36,3 +36,12 @@ export const postDb = async (name, email, phone, profile) => {
   const result = await request;
   console.log("data saved to db!", result);
 };
+
+export const deleteDb = async (id) => {
+  const contactDb = await openDB("contact_db", 1);
+  const tx = contactDb.transaction("contacts", "readwrite");
+  const store = tx.objectStore("contacts");
+  const request = store.delete(id);
+  const result = await request;
+  return result?.value;
+};
