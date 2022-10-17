@@ -10,7 +10,7 @@ import Bear from "../images/bear.png";
 import Dog from "../images/dog.png";
 
 //Import database initializer
-import { initDb, getDb, postDb, deleteDb } from "./database";
+import { initDb, getDb, postDb, deleteDb, editDb } from "./database";
 
 //import cards functionality
 import { fetchCards } from "./cards";
@@ -50,6 +50,11 @@ form.addEventListener("submit", (event) => {
   if (submitBtnToUpdate == false) {
     postDb(name, email, phone, profile);
   } else {
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let email = document.getElementById("email").value;
+    let profile = document.querySelector('input[type="radio"]:checked').value;
+    editDb(profileId, name, email, phone, profile);
     fetchCards();
     submitBtnToUpdate = false;
   }
@@ -63,4 +68,18 @@ window.deleteCard = (e) => {
   let id = parseInt(e.id);
   deleteDb(id);
   fetchCards();
+};
+
+window.editCard = (e) => {
+  profileId = parseInt(e.dataset.id);
+  let editName = e.dataset.name;
+  let editEmail = e.dataset.email;
+  let editPhone = e.dataset.phone;
+  document.getElementById("name").value = editName;
+  document.getElementById("email").value = editEmail;
+  document.getElementById("phone").value = editPhone;
+
+  form.style.display = "block";
+
+  submitBtnToUpdate = true;
 };
