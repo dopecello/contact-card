@@ -8,6 +8,7 @@ import "../css/index.css";
 import Logo from "../images/logo.png";
 import Bear from "../images/bear.png";
 import Dog from "../images/dog.png";
+import Unused from '../images/unused-image.png';
 
 //Import database initializer
 import { initDb, getDb, postDb, deleteDb, editDb } from "./database";
