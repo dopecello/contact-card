@@ -83,3 +83,13 @@ window.editCard = (e) => {
 
   submitBtnToUpdate = true;
 };
+
+// Service worker
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    {
+      navigator.serviceWorker.register("./service-worker.js");
+    }
+  });
+}
